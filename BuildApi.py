@@ -13,12 +13,6 @@ app = Flask(__name__)
 file_path = '/Users/samiksha.bidua/Downloads/pokemon.csv'
 pokemon_data = pd.read_csv(file_path)
 
-# Database connection parameters
-DB_HOST = 'localhost'
-DB_NAME = 'your_database_name'
-DB_USER = 'your_username'
-DB_PASS = 'your_password'
-
 init_db()
 
 @app.route('/pokemon', methods=['GET'])
