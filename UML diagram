@@ -1,0 +1,33 @@
++------------------------+
+|       FlaskApp         |
++------------------------+
+| - pokemon_data: DataFrame  |  # Holds the Pokémon data loaded from the CSV file
++------------------------+
+| + list_pokemon()         |  # Handles the GET request to list Pokémon with pagination
+| + start_battle()         |  # Handles the POST request to start a battle between two Pokémon
+| + get_battle_result()    |  # Handles the GET request to retrieve the result of a battle
++------------------------+
+
+                |
+                v
+    +--------------------+         +--------------------+          +-------------------------+
+    |   PokemonData      |         |      Database      |          |       BattleLogic        |
+    +--------------------+         +--------------------+          +-------------------------+
+    | - file_path: str   |         | - host: str        |          | - pokemon_data: DataFrame|
+    |                    |         | - name: str        |          +-------------------------+
+    | + load_data()      |         | - user: str        |          | + battle(pokemon_a,      |
+    | # Loads and parses |         | - pass: str        |          |    pokemon_b, data)      |
+    |   Pokémon data from|         +--------------------+          | # Simulates a battle     |
+    |   a CSV file       |         | + save_battle_to_db()|        |   between two Pokémon,   |
+    +--------------------+         | # Saves initial     |         |   calculates damage, and |
+                                    |   battle data to DB|         |   determines the winner  |
+                                    | + update_battle_in_db() |    +-------------------------+
+                                    | # Updates battle    |
+                                    |   status and result |
+                                    |   in the database   |
+                                    | + get_battle_from_db() |
+                                    | # Retrieves battle  |
+                                    |   status/result by ID|
+                                    +--------------------+
+
+
