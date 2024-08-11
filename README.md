@@ -18,7 +18,6 @@ You can find the source code for this project at: [Your Repository URL](https://
    git clone https://github.com/yourusername/your-repository.git
    cd your-repository
 
-## install packages
 Install required packages:
 psycopg2
 flask
@@ -30,11 +29,9 @@ typing
 #Command to install
 pip3 install packageName
 
-
-##Run application
+## Run Application and testing application
 python3 BuildApi.py
 
-##Testing the Application
 1- Open a new terminal and make a request to list Pokémon:
 curl http://127.0.0.1:5000/pokemon
 
