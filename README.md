@@ -38,5 +38,5 @@ curl http://127.0.0.1:5000/pokemon
 2- Open another terminal to start a battle with a POST request:
 curl -X POST http://127.0.0.1:5000/battle -H "Content-Type: application/json" -d '{"pokemon_a": "Gloom", "pokemon_b": "Vileplume"}'
 
-3- Retrieve the battle result using the battleId:
+3- Retrieve the battle result using the battleId generate from above curl command:
 curl http://127.0.0.1:5000/battle/battleId
