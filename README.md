@@ -21,7 +21,7 @@ You can find the source code for this project at: [Your Repository URL](https://
 You can install the required packages using the following command:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 ## To run the unit tests, use the following command:
 python3 -m unittest discover
