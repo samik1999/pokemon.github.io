@@ -5,11 +5,11 @@ from uuid import uuid4
 from pydantic import BaseModel, ValidationError
 from typing import List, Dict, Any, Optional
 from data import Database
-from PokémonBattleSimulator import PokemonBattleSimulator
+from pokémonBattleSimulator import PokemonBattleSimulator
 
 app = Flask(__name__)
 
-file_path = 'filePath'
+file_path = '/Users/samiksha.bidua/Downloads/pokemon.csv'
 pokemon_data = pd.read_csv(file_path)
 
 db = Database()
@@ -91,14 +91,14 @@ def start_battle():
         Thread(target=run_battle).start()
         
         response = StartBattleResponse(battle_id=battle_id)
-        return jsonify(response.dict())
+        return jsonify(response.model_dump())
 
     except ValidationError as ve:
         error_response = ErrorResponse(error=str(ve))
-        return jsonify(error_response.dict()), 400
+        return jsonify(error_response.model_dump()), 400
     except Exception as e:
         error_response = ErrorResponse(error=str(e))
-        return jsonify(error_response.dict()), 500
+        return jsonify(error_response.model_dump()), 500
 
 # To get the result of battle
 @app.route('/battle/<battle_id>', methods=['GET'])
@@ -116,10 +116,10 @@ def get_battle_result(battle_id):
             status=result.get('status'),
             result=result.get('result')
         )
-        return jsonify(response.dict())
+        return jsonify(response.model_dump())
     except Exception as e:
         error_response = ErrorResponse(error=str(e))
-        return jsonify(error_response.dict()), 500
+        return jsonify(error_response.model_dump()), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
