@@ -18,25 +18,10 @@ You can find the source code for this project at: [Your Repository URL](https://
    git clone https://github.com/yourusername/your-repository.git
    cd your-repository
 
-Install required packages:
-psycopg2
-flask
-pandas
-threading
-uuid
-pydantic
-typing
-#Command to install
-pip3 install packageName
+You can install the required packages using the following command:
 
-## Run Application and testing application
-python3 BuildApi.py
+```bash
+pip install -r requirements.txt
 
-1- Open a new terminal and make a request to list Pokémon:
-curl http://127.0.0.1:5000/pokemon
-
-2- Open another terminal to start a battle with a POST request:
-curl -X POST http://127.0.0.1:5000/battle -H "Content-Type: application/json" -d '{"pokemon_a": "Gloom", "pokemon_b": "Vileplume"}'
-
-3- Retrieve the battle result using the battleId generate from above curl command:
-curl http://127.0.0.1:5000/battle/battleId
+## To run the unit tests, use the following command:
+python3 -m unittest discover
